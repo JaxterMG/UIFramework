@@ -2,11 +2,9 @@
   "name": "com.jaxtermg.uiframework",
   "version": "0.0.10",
   "displayName": "JaxterMG.UIFramework",
-  "description": "",
+  "description": "UI framefork for faster development process",
   "unity": "2022.3",
   "license": "MIT",
-  "dependencies": {
-  },
   "keywords": [
     "jaxtermg",
     "uiframework",

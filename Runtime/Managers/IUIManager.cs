@@ -1,7 +1,10 @@
-﻿namespace Jaxtermg.UIFramework.Managers
+﻿using Jaxtermg.UIFramework.Windows;
+
+namespace Jaxtermg.UIFramework.Managers
 {
-	public class IUIManager
+	public interface IUIManager
 	{
-		
+		void ShowWindow(WindowType type);
+		void HideWindow(WindowType type);
 	}
 }

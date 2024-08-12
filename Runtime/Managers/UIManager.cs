@@ -1,25 +1,33 @@
-﻿using Jaxtermg.UIFramework.Windows;
+﻿using System.Collections.Generic;
+using JaxterMG.Pooling.ObjectPool;
+using Jaxtermg.UIFramework.Pooling;
+using Jaxtermg.UIFramework.Windows;
+using UI.Windows.Configs;
 
 namespace Jaxtermg.UIFramework.Managers
 {
-	public class UIManager : IUIManager
+	public class UIManager
 	{
-		private readonly IWindowPool windowPool;
+		private readonly Dictionary<WindowConfig, ObjectPool<IWindow>> windowPools = new Dictionary<WindowConfig, ObjectPool<IWindow>>();
 
-		public WindowManager(IWindowPool pool)
+		public void InitializeWindowPool(WindowConfig config)
 		{
-			windowPool = pool;
+			if (!windowPools.ContainsKey(config))
+			{
+				windowPools[config] = new UIWindowPool(config);
+			}
 		}
 
-		public void ShowWindow(WindowType type)
+		public void ShowWindow(WindowConfig config)
 		{
-			IWindow window = windowPool.GetWindow(type);
+			IWindow window = windowPools[config].Get();
 			window.Show();
 		}
 
-		public void HideWindow(IWindow window)
+		public void HideWindow(WindowConfig config)
 		{
-			windowPool.ReturnWindow(window);
+			IWindow window = windowPools[config].Get();
+			windowPools[config].Return(window);
 		}
 	}
 }

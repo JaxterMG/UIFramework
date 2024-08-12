@@ -1,0 +1,17 @@
+{
+    "name": "JaxterMG.UIFramework",
+    "rootNamespace": "Jaxtermg.UIFramework",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "DOTween.dll",
+        "Pooling.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
